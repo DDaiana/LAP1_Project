@@ -7,7 +7,8 @@
     "test": "test"
   },
   "devDependencies": {
-    "jest-environment-jsdom": "^28.1.2"
+    "jest-environment-jsdom": "^28.1.2",
+    "ws": "3.3.2"
   },
   "scripts": {
     "test": "jest --watchAll"
@@ -21,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/DDaiana/lap1_portofolioProject/issues"
   },
-  "homepage": "https://github.com/DDaiana/lap1_portofolioProject#readme"
+  "homepage": "https://github.com/DDaiana/lap1_portofolioProject#readme",
+  "dependencies": {
+    "jest": "^28.1.2",
+    "watchify": "^4.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
 }
