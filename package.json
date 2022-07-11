@@ -1,0 +1,25 @@
+{
+  "name": "lap1_portofolioproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^28.1.2"
+  },
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DDaiana/lap1_portofolioProject.git"
+  },
+  "author": "ddaiana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DDaiana/lap1_portofolioProject/issues"
+  },
+  "homepage": "https://github.com/DDaiana/lap1_portofolioProject#readme"
+}
