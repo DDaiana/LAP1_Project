@@ -1,0 +1,35 @@
+{
+  "name": "lap1_portofolioproject",
+  "version": "1.0.0",
+  "description": "useful commands\r ``npm i jest-environment-jsdom --save-dev``",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^28.1.2",
+    "ws": "3.3.2"
+  },
+  "scripts": {
+    "test": "jest --watchAll",
+    "start": "json-server --watch ./database/db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DDaiana/lap1_portofolioProject.git"
+  },
+  "author": "ddaiana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DDaiana/lap1_portofolioProject/issues"
+  },
+  "homepage": "https://github.com/DDaiana/lap1_portofolioProject#readme",
+  "dependencies": {
+    "jest": "^28.1.2",
+    "json-server": "^0.17.0",
+    "watchify": "^4.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}

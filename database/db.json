@@ -1,0 +1,17 @@
+{
+    "post": [
+        {
+            "id": 1,
+            "avatar": "../assets/img/trebleClef.jpg",
+            "title": "postTestTitle",
+            "story": "postTestStory"
+        },
+        {
+            "id": 2,
+            "avatar": "../assets/img/trebleClef.jpg",
+            "title": "postTestTitle1",
+            "story": "postTestStory1"
+        }
+
+    ]
+}
