@@ -1,39 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <div class="container mx-auto">
-        <h1 class="text-center text-4xl text-indigo-400 py-12">MUSE Forum</h1>
-        <table  class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase track">Add new post section to come</th>
-                </tr>
-            </thead>
 
-            <tbody class="bg-white devide-y divide-gray-200" id="tbody">
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
+let tbody = document.getElementById("tbody")
+
+
+
+//fetch post data
+fetch("http://localhost:3000/post")
+.then(res => res.json())
+.then(json => {
+    json.map(data => {
+        console.log(data.title);
+        tbody.append(data.title);
+    })
+})
+
+
+// create post
+function post(title) {
+    let td = document.createElement("tr");
+    td.innerHTML = `
+    <td class="px-6 py-4 whitespace-nowrap">
                         
-                        <!-- post header -->
+                         <!-- post header --> 
                         <div class="flex items-center">
                             <div class="flex-shrink- 0 h-10 w-10"> 
                                 <img class="h-10 w-10 rounded-full" src="assets/img/trebleClef.jpg" alt="avatarTrbleClef">
                             </div>
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">
-                                    Post Title
+                                    ${title}
                                 </div>
                             </div>                            
                         </div>
 
-                        <!-- post body -->                    
+                        <!-- post body -->
                         <div class="py-4 flex items-center">
                             <div class="ml-4">
                                  <div class="text-sm text-gray-500">
@@ -42,7 +41,7 @@
                             </div>                            
                         </div>
 
-                        <!-- post footer -->
+                        <!-- post footer --> 
                         <div class="flex items-center">
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-gray-900">
@@ -58,19 +57,6 @@
 
 
                     </td>
-
-
-                </tr>
-            </tbody>
-
-
-        </table>
-    </div>
-
-
-    
-
-<script src="../index.js"></script>
-
-</body>
-</html>
+    `;
+    return td;
+}
