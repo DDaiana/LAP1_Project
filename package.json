@@ -1,7 +1,7 @@
 {
   "name": "lap1_portofolioproject",
   "version": "1.0.0",
-  "description": "",
+  "description": "useful commands\r ``npm i jest-environment-jsdom --save-dev``",
   "main": "index.js",
   "directories": {
     "test": "test"
