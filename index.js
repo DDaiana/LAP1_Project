@@ -28,8 +28,7 @@ function td_fun(title, story) {
                 </div>
                 <div class="pull-left meta">
                     <div class="title h5">
-                        <a href="#"><b>${title}</b></a>
-                        made a post.
+                        <b>${title}</b>
                     </div>
                     <h6 class="text-muted time">Posted: 1 minute ago</h6>
                 </div>

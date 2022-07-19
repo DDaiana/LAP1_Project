@@ -4,13 +4,27 @@
             "id": 1,
             "avatar": "../assets/img/trebleClef.jpg",
             "title": "postTestTitle",
-            "story": "postTestStory"
+            "story": "postTestStory",
+            "reactions": [
+                { 
+                    "id": 1,
+                    "name": "thumbs-up",
+                    "hits": 2
+                }
+            ]
         },
         {
             "id": 2,
             "avatar": "../assets/img/trebleClef.jpg",
             "title": "postTestTitle1",
-            "story": "postTestStory1"
+            "story": "postTestStory1",
+            "reactions": [
+                { 
+                    "id": 1,
+                    "name": "thumbs-up",
+                    "hits": 2
+                }
+            ]
         }
     ]
 }
