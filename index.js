@@ -8,14 +8,14 @@ fetch("http://localhost:3000/post")
 .then(res => res.json())
 .then(json => {
     json.map(data => {
-        console.log(data.title);
-        tbody.append(td_fun(data.title, data.story));
+        console.log(data.reactions[0].hits);
+        tbody.append(td_fun(data.title, data.story, data.reactions[0].hits, data.reactions[1].hits));
     })
 })
 
 
 // create post
-function td_fun(title, story) {
+function td_fun(title, story, reactions) {
     let td = document.createElement('tr');
     td.innerHTML = `
 <td>                    
@@ -37,10 +37,10 @@ function td_fun(title, story) {
                 <p>${story}</p>
                 <div class="stats">
                     <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-up icon"></i>2
+                        <i class="fa fa-thumbs-up icon"></i>${reactions}
                     </a>
                     <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-down icon"></i>12
+                        <i class="fa fa-thumbs-down icon"></i>${reactions}
                     </a>
                     <a href="#" class="btn btn-default stat-item">
                         <i class="fa fa-heart icon"></i>3
