@@ -8,14 +8,17 @@ fetch("http://localhost:3000/post")
 .then(res => res.json())
 .then(json => {
     json.map(data => {
-        console.log(data.reactions[0].hits);
-        tbody.append(td_fun(data.title, data.story, data.reactions[0].hits, data.reactions[1].hits));
+        for(let i = 0; i < data.id; i++){
+            console.log('executing', i);
+        }
+        // console.log(data.id);
+        tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1],  data.reactions[2]));
     })
 })
 
 
 // create post
-function td_fun(title, story, reactions) {
+function td_fun(title, story, thumbsUp, thumbsDown, heart) {
     let td = document.createElement('tr');
     td.innerHTML = `
 <td>                    
@@ -37,13 +40,13 @@ function td_fun(title, story, reactions) {
                 <p>${story}</p>
                 <div class="stats">
                     <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-up icon"></i>${reactions}
+                        <i class="fa fa-thumbs-up icon"></i>${thumbsUp.hits}
                     </a>
                     <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-down icon"></i>${reactions}
+                        <i class="fa fa-thumbs-down icon"></i>${thumbsDown.hits}
                     </a>
                     <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-heart icon"></i>3
+                        <i class="fa fa-heart icon"></i>${heart.hits}
                     </a>
                 </div>
             </div>
