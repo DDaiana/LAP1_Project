@@ -58,9 +58,7 @@ function td_fun(title, story) {
                 <!----------------------------- commets list starts --------------------------->
                 <ul class="comments-list">
                     <li class="comment">
-                        <a class="pull-left" href="#">
-                            <img class="avatar" src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-                        </a>
+                            <img class="avatar pull-left" src="./assets/img/trebleClef.jpg" alt="avatar">
                         <div class="comment-body">
                             <div class="comment-heading">
                                 <h4 class="user">Commet title</h4>
