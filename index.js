@@ -8,10 +8,10 @@ fetch("http://localhost:3000/post")
 .then(res => res.json())
 .then(json => {
     json.map(data => {
-        for(let i = 0; i < data.id; i++){
-            console.log('executing', i);
-        }
-        // console.log(data.id);
+        // for(let i = 0; i < data.id; i++){
+        //     console.log('executing', i);
+        // }
+        console.log(data.comments[0]);
         tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1],  data.reactions[2]));
     })
 })
