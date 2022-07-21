@@ -1,26 +1,34 @@
 
-let tbody = document.getElementById("tbody")
+let tbody = document.getElementById("tbody");
 
-
+let ul = document.getElementById("ul");
 
 //fetch post data
 fetch("http://localhost:3000/post")
-.then(res => res.json())
-.then(json => {
-    json.map(data => {
-        // for(let i = 0; i < data.id; i++){
-        //     console.log('executing', i);
-        // }
-        console.log(data.comments[0]);
-        tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1],  data.reactions[2]));
-    })
-})
+  .then((res) => res.json())
+  .then((json) => {
+    json.map((data) => {
+      // for(let i = 0; i < data.id; i++){
+      //     console.log('executing', i);
+      // }
+      console.log(data);
+      tbody.append(
+        td_fun(
+          data.title,
+          data.story,
+          data.reactions[0],
+          data.reactions[1],
+          data.reactions[2]
+        )
+      );
+    });
+  });
 
 
 // create post
 function td_fun(title, story, thumbsUp, thumbsDown, heart) {
-    let td = document.createElement('tr');
-    td.innerHTML = `
+  let td = document.createElement("tr");
+  td.innerHTML = `
 <td>                    
 <div class="container bootstrap snippets bootdey">
     <div class="col-sm-8">
@@ -59,18 +67,18 @@ function td_fun(title, story, thumbsUp, thumbsDown, heart) {
                 </div>
 
                 <!----------------------------- commets list starts --------------------------->
-                <ul class="comments-list">
-                    <li class="comment">
-                            <img class="avatar pull-left" src="./assets/img/trebleClef.jpg" alt="avatar">
-                        <div class="comment-body">
-                            <div class="comment-heading">
-                                <h4 class="user">Commet title</h4>
-                                <h5 class="time">Posted: 5 minutes ago</h5>
-                            </div>
-                            <p>Commet body</p>
-                        </div>                        
-                    </li>
-                </ul>
+             <ul class="comments-list">
+              <li class="comment">
+                <img class="avatar pull-left" src="./assets/img/trebleClef.jpg" alt="avatar">
+                <div class="comment-body">
+                <div class="comment-heading">
+                    <h4 class="user">Commet title</h4>
+                    <h5 class="time">Posted: 5 minutes ago</h5>
+                </div>
+                <p>Commet body</p>
+                </div>                        
+                  </li>
+             </ul>
                 <!----------------------------- commets list ends ---------------------------->
             </div>
         </div>
@@ -78,5 +86,5 @@ function td_fun(title, story, thumbsUp, thumbsDown, heart) {
 </div>
 </td>
     `;
-    return td;
+  return td;
 }
