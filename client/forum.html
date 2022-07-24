@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container mx-auto ">
-        <h1 class="text-center text-4xl text-indigo-400 py-12">MUSE Forum</h1>
+        <h1 class="text-center text-4xl text-indigo-400 py-12">MUZE Forum</h1>
         <table  class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
@@ -54,7 +54,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="post-footer">
+                                <div class="post-footer" id="postFooter">
                                     <div class="input-group"> 
                                         <input class="form-control" placeholder="Add a comment" type="text">
                                         <span class="input-group-addon">
@@ -63,21 +63,25 @@
                                     </div>
 
                                     <!----------------------------- commets list starts --------------------------->
-                                    <ul class="comments-list">
+                                                                        
+                                    <ul class="comments-list" id="comments-list">               
                                         <li class="comment">
-                                            <a class="pull-left" href="#">
-                                                <img class="avatar" src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-                                            </a>
-                                            <div class="comment-body">
-                                                <div class="comment-heading">
-                                                    <h4 class="user">Commet title</h4>
-                                                    <h5 class="time">Posted: 5 minutes ago</h5>
-                                                </div>
-                                                <p>Commet body</p>
-                                            </div>                        
+                                        <div class="post-heading">
+                                        <div class="pull-left image">
+                                            <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                                        </div>
+                                        <div class="comment-body">
+                                            <div class="comment-heading">
+                                            <h4 class="user">Comment title</h4>
+                                                <h5 class="time">Posted: 5 minutes ago</h5>
+                                            </div>
+                                            <p>Comment body</p>
+                                        </div>  
+                                        </div>   
                                         </li>
-                                    </ul>
+                                        </ul>
                                     <!----------------------------- commets list ends ---------------------------->
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -85,12 +89,10 @@
                 </td>
                 </tr>
             </tbody>
-
-
         </table>
     </div>
 
-
+<!-- <div id="test" class="comments-list"> </div> -->
     
 
 <script src="../index.js"></script>

@@ -158,3 +158,56 @@
 
 </body>
 </html>
+
+
+//comments root 
+"comments": [
+    {
+      "id": 1,
+      "postID": 1,
+      "avatar": "../assets/img/trebleClef.jpg",
+      "title": "commentTestTitle1",
+      "story": "commentTestStory1",
+      "reactions": [
+          { 
+              "id": 1,
+              "name": "thumbs-up",
+              "hits": 12 
+          },
+          { 
+              "id": 2,
+              "name": "thumbs-down",
+              "hits": 8 
+          },
+          { 
+              "id": 3,
+              "name": "heart",
+              "hits": 2 
+          }
+      ]  
+  },
+  {
+      "id": 2,
+      "postID": 1,
+      "avatar": "../assets/img/trebleClef.jpg",
+      "title": "commentTestTitle1",
+      "story": "commentTestStory1",
+      "reactions": [
+          { 
+              "id": 1,
+              "name": "thumbs-up",
+              "hits": 12 
+          },
+          { 
+              "id": 2,
+              "name": "thumbs-down",
+              "hits": 8 
+          },
+          { 
+              "id": 3,
+              "name": "heart",
+              "hits": 2 
+          }
+      ]  
+  }
+  ]

@@ -1,36 +1,54 @@
 
 let tbody = document.getElementById("tbody");
+// let footer = document.getElementsByClassName("post-footer");
+let footer = document.getElementById("postFooter");
 
-let ul = document.getElementById("ul");
 
 //fetch post data
 fetch("http://localhost:3000/post")
   .then((res) => res.json())
   .then((json) => {
+    
     json.map((data) => {
-      // for(let i = 0; i < data.id; i++){
-      //     console.log('executing', i);
-      // }
-      console.log(data);
-      tbody.append(
-        td_fun(
-          data.title,
-          data.story,
-          data.reactions[0],
-          data.reactions[1],
-          data.reactions[2]
-        )
-      );
+
+        tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1], data.reactions[2]));
+        // footer.appendChild(li_fun())
+        // for (let i=0; i < Object.keys( data.comments ).length; i++){
+        //     console.log("i for comments is here: ", i);
+        //     console.log( Object.keys( data.comments ).length )
+        //    console.log(li_fun(data.comments[i].title))
+        //    footer.append(li_fun(data.comments[i].title))
+        // }
+
+            console.log("posts id: ", data.id);
+            console.log("posts comments: ",  Object.keys( data.comments ).length);
+             
+        // tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1], data.reactions[2]));
     });
   });
+  
+
+//fetch comment data
+// fetch("http://localhost:3000/comments")
+//   .then((res) => res.json())
+//   .then((json) => {
+//     json.map((data) => {
+//     console.log("data for comments: ", data)
+//     if (data.postID === 1){
+//         console.log("comments for postID: ", data.postID)
+//         console.log("data for comments: ", data)
+// }
+//       footer.append(li_fun());
+// });
+//   });
 
 
 // create post
-function td_fun(title, story, thumbsUp, thumbsDown, heart) {
+function td_fun(title, story, thumbsUp, thumbsDown, heart, li_fun) {
   let td = document.createElement("tr");
-  td.innerHTML = `
-<td>                    
-<div class="container bootstrap snippets bootdey">
+  td.innerHTML = `                    
+<td>
+  <div class="container bootstrap snippets bootdey">
     <div class="col-sm-8">
         <div class="panel panel-white post panel-shadow">
             <div class="post-heading">
@@ -58,33 +76,47 @@ function td_fun(title, story, thumbsUp, thumbsDown, heart) {
                     </a>
                 </div>
             </div>
-            <div class="post-footer">
+            <div class="post-footer" id="postFooter">
                 <div class="input-group"> 
                     <input class="form-control" placeholder="Add a comment" type="text">
-                    <span class="input-group-addon">
-                        <a href="#"><i class="fa fa-edit"></i></a>  
-                    </span>
-                </div>
-
-                <!----------------------------- commets list starts --------------------------->
-             <ul class="comments-list">
-              <li class="comment">
-                <img class="avatar pull-left" src="./assets/img/trebleClef.jpg" alt="avatar">
-                <div class="comment-body">
-                <div class="comment-heading">
-                    <h4 class="user">Commet title</h4>
-                    <h5 class="time">Posted: 5 minutes ago</h5>
-                </div>
-                <p>Commet body</p>
-                </div>                        
-                  </li>
-             </ul>
-                <!----------------------------- commets list ends ---------------------------->
+                        <span class="input-group-addon">
+                            <a href="#"><i class="fa fa-edit"></i></a>  
+                        </span>
+                </div>              
             </div>
         </div>
     </div>
-</div>
 </td>
     `;
   return td;
 }
+
+
+// create comments list
+function li_fun() {
+    let li = document.createElement(`ul`); 
+    li.innerHTML = `              
+<li class="comment">
+<div class="post-heading">
+<div class="pull-left image">
+    <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+</div>
+<div class="comment-body">
+    <div class="comment-heading">
+    <h4 class="user">Comment title</h4>
+        <h5 class="time">Posted: 5 minutes ago</h5>
+    </div>
+    <p>Comment body</p>
+</div>  
+</div>   
+</li>
+      `;   
+    return li;
+  }
+  
+//   console.log(li_fun())
+  footer.appendChild(li_fun())
+ 
+
+
+ 
