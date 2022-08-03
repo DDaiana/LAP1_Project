@@ -24,12 +24,13 @@
             </thead>
 
             <tbody class="bg-white devide-y divide-gray-200" id="tbody">
-                <tr>
-                <td>                    
+                <tr id="tr">
+                <td id="td">                    
                     <div class="container bootstrap snippets bootdey">
                         <div class="col-sm-8">
                             <div class="panel panel-white post panel-shadow">
-                                <div class="post-heading">
+                                <div id="rootHeader">
+                                <!-- <div class="post-heading" id="">
                                     <div class="pull-left image">
                                         <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
                                     </div>
@@ -39,33 +40,36 @@
                                         </div>
                                         <h6 class="text-muted time">Posted: 1 minute ago</h6>
                                     </div>
-                                </div> 
-                                <div class="post-description"> 
+                                </div>  -->
+                               </div>
+                               <div id="rootBody">
+                                <!-- <div class="post-description"> 
                                     <p>Post body</p>
-                                    <div class="stats">
-                                        <a href="#" class="btn btn-default stat-item">
+                                    <div class="reactions" id="reactions">
+                                        <a href="#" class="btn btn-default reaction-item">
                                             <i class="fa fa-thumbs-up icon"></i>2
                                         </a>
-                                        <a href="#" class="btn btn-default stat-item">
+                                        <a href="#" class="btn btn-default reaction-item">
                                             <i class="fa fa-thumbs-down icon"></i>12
                                         </a>
-                                        <a href="#" class="btn btn-default stat-item">
+                                        <a href="#" class="btn btn-default reaction-item">
                                             <i class="fa fa-heart icon"></i>3
                                         </a>
                                     </div>
+                                </div> -->
                                 </div>
-                                <div class="post-footer" id="postFooter">
-                                    <div class="input-group"> 
+                                <div class="post-footer">
+                                    <!-- <div class="input-group"> 
                                         <input class="form-control" placeholder="Add a comment" type="text">
                                         <span class="input-group-addon">
                                             <a href="#"><i class="fa fa-edit"></i></a>  
                                         </span>
-                                    </div>
+                                    </div> -->
 
                                     <!----------------------------- commets list starts --------------------------->
                                                                         
-                                    <ul class="comments-list" id="comments-list">               
-                                        <li class="comment">
+                                    <ul class="comments-list" id="rootComments">               
+                                      <!-- <li class="comment">
                                         <div class="post-heading">
                                         <div class="pull-left image">
                                             <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
@@ -78,10 +82,11 @@
                                             <p>Comment body</p>
                                         </div>  
                                         </div>   
-                                        </li>
-                                        </ul>
+                                       </li> -->
+                                    </ul>
                                     <!----------------------------- commets list ends ---------------------------->
                                 </div>
+                            
                                 </div>
                             </div>
                         </div>
@@ -96,6 +101,6 @@
     
 
 <script src="../index.js"></script>
-
+<!-- <script src="../get.js"></script> -->
 </body>
 </html>
