@@ -1,57 +1,47 @@
 
-let tbody = document.getElementById("tbody");
-// let footer = document.getElementsByClassName("post-footer");
-let footer = document.getElementById("postFooter");
+let rootHeader = document.getElementById("rootHeader");
+let rootBody = document.getElementById("rootBody");
+let rootFooter = document.getElementById("rootFooter");
 
 
 //fetch post data
-fetch("http://localhost:3000/post")
+fetch("http://localhost:3000/posts")
   .then((res) => res.json())
   .then((json) => {
     
     json.map((data) => {
 
-        tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1], data.reactions[2]));
-        // footer.appendChild(li_fun())
-        // for (let i=0; i < Object.keys( data.comments ).length; i++){
-        //     console.log("i for comments is here: ", i);
-        //     console.log( Object.keys( data.comments ).length )
-        //    console.log(li_fun(data.comments[i].title))
-        //    footer.append(li_fun(data.comments[i].title))
-        // }
-
-            console.log("posts id: ", data.id);
-            console.log("posts comments: ",  Object.keys( data.comments ).length);
-             
-        // tbody.append(td_fun(data.title, data.story, data.reactions[0], data.reactions[1], data.reactions[2]));
-    });
+        for (let i=0; i < Object.keys( data.heading ).length; i++){
+            rootHeader.append(header_fun(data.heading[i].title))
+        }
+    })
+    json.map((data) => {
+        // console.log(data.body)
+        for (let i=0; i < Object.keys( data.body ).length; i++){
+            rootBody.append(body_fun(data.body[i].story))
+        }
+    })
+    json.map((data) => {
+        // console.log(data.footer)
+        for (let i=0; i < Object.keys( data.footer ).length; i++){
+            // console.log(data.footer[i].comment)
+            for(let j=0; j< Object.keys( data.footer[i].comment ).length; j++){
+                console.log(data.footer[i].comments[j])
+                // rootFooter.append(footer_fun(data.footer[i].heading[j].title))
+            }
+            // for(let k=0; k< Object.keys( data.footer[i].heading ).length; k++){
+            //     console.log(data.footer[i].body[k].story)
+            // }
+        }
+    })
   });
   
 
-//fetch comment data
-// fetch("http://localhost:3000/comments")
-//   .then((res) => res.json())
-//   .then((json) => {
-//     json.map((data) => {
-//     console.log("data for comments: ", data)
-//     if (data.postID === 1){
-//         console.log("comments for postID: ", data.postID)
-//         console.log("data for comments: ", data)
-// }
-//       footer.append(li_fun());
-// });
-//   });
-
-
-// create post
-function td_fun(title, story, thumbsUp, thumbsDown, heart, li_fun) {
-  let td = document.createElement("tr");
-  td.innerHTML = `                    
-<td>
-  <div class="container bootstrap snippets bootdey">
-    <div class="col-sm-8">
-        <div class="panel panel-white post panel-shadow">
-            <div class="post-heading">
+// create post header
+function header_fun(title) {
+  let postHeader = document.createElement("div");
+  postHeader.className = "post-heading";
+  postHeader.innerHTML = `    
                 <div class="pull-left image">
                     <img src="./assets/img/trebleClef.jpg" class="img-circle avatar" alt="user profile image">
                 </div>
@@ -61,41 +51,39 @@ function td_fun(title, story, thumbsUp, thumbsDown, heart, li_fun) {
                     </div>
                     <h6 class="text-muted time">Posted: 1 minute ago</h6>
                 </div>
-            </div> 
-            <div class="post-description"> 
-                <p>${story}</p>
-                <div class="stats">
-                    <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-up icon"></i>${thumbsUp.hits}
-                    </a>
-                    <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-thumbs-down icon"></i>${thumbsDown.hits}
-                    </a>
-                    <a href="#" class="btn btn-default stat-item">
-                        <i class="fa fa-heart icon"></i>${heart.hits}
-                    </a>
-                </div>
-            </div>
-            <div class="post-footer" id="postFooter">
-                <div class="input-group"> 
-                    <input class="form-control" placeholder="Add a comment" type="text">
-                        <span class="input-group-addon">
-                            <a href="#"><i class="fa fa-edit"></i></a>  
-                        </span>
-                </div>              
-            </div>
-        </div>
-    </div>
-</td>
     `;
-  return td;
+  return postHeader;
 }
+
+//create post body
+function body_fun(story) {
+    let postBody = document.createElement("div");
+    postBody.className = "post-description";
+    postBody.innerHTML = `    
+    
+    <p>${story}</p>
+    <div class="reactions" id="reactions">
+        <a href="#" class="btn btn-default reaction-item">
+            <i class="fa fa-thumbs-up icon"></i>2
+        </a>
+        <a href="#" class="btn btn-default reaction-item">
+            <i class="fa fa-thumbs-down icon"></i>12
+        </a>
+        <a href="#" class="btn btn-default reaction-item">
+            <i class="fa fa-heart icon"></i>3
+        </a>
+    </div>
+
+      `;
+    return postBody;
+  }
 
 
 // create comments list
-function li_fun() {
-    let li = document.createElement(`ul`); 
-    li.innerHTML = `              
+function footer_fun(title) {
+    let ul = document.createElement(`ul`); 
+    ul.className = "comments-list";
+    ul.innerHTML = `              
 <li class="comment">
 <div class="post-heading">
 <div class="pull-left image">
@@ -111,11 +99,11 @@ function li_fun() {
 </div>   
 </li>
       `;   
-    return li;
+    return ul;
   }
   
 //   console.log(li_fun())
-  footer.appendChild(li_fun())
+//   footer.appendChild(li_fun())
  
 
 
