@@ -1,16 +1,168 @@
 {
-    "post": [
-        {
-            "id": 1,
+  "post": [
+      {
+        "id": 1,
+        "avatar": "../assets/img/trebleClef.jpg",
+        "title": "postTestTitle",
+        "story": "postTestStory",
+        "reactions": [
+            { 
+                "id": 1,
+                "name": "thumbs-up",
+                "hits": 2 
+            },
+            { 
+                "id": 2,
+                "name": "thumbs-down",
+                "hits": 4 
+            },
+            { 
+                "id": 3,
+                "name": "heart",
+                "hits": 7 
+            }
+        ],
+        "comments": [
+            {
+              "id": 1,
+              "avatar": "../assets/img/trebleClef.jpg",
+              "title": "commentTestTitle1",
+              "story": "commentTestStory1",
+              "reactions": [
+                  { 
+                      "id": 1,
+                      "name": "thumbs-up",
+                      "hits": 12 
+                  },
+                  { 
+                      "id": 2,
+                      "name": "thumbs-down",
+                      "hits": 8 
+                  },
+                  { 
+                      "id": 3,
+                      "name": "heart",
+                      "hits": 2 
+                  }
+              ]  
+          },
+          {
+              "id": 2,
+              "avatar": "../assets/img/trebleClef.jpg",
+              "title": "commentTestTitle1",
+              "story": "commentTestStory1",
+              "reactions": [
+                  { 
+                      "id": 1,
+                      "name": "thumbs-up",
+                      "hits": 12 
+                  },
+                  { 
+                      "id": 2,
+                      "name": "thumbs-down",
+                      "hits": 8 
+                  },
+                  { 
+                      "id": 3,
+                      "name": "heart",
+                      "hits": 2 
+                  }
+              ]  
+          }
+          ] 
+    },
+    {
+        "id": 2,
+        "avatar": "../assets/img/trebleClef.jpg",
+        "title": "postTestTitle1",
+        "story": "postTestStory1",
+        "reactions": [
+            { 
+                "id": 1,
+                "name": "thumbs-up",
+                "hits": 12 
+            },
+            { 
+                "id": 2,
+                "name": "thumbs-down",
+                "hits": 8 
+            },
+            { 
+                "id": 3,
+                "name": "heart",
+                "hits": 2 
+            }
+        ],
+        "comments": [
+            {
+              "id": 1,
+              "avatar": "../assets/img/trebleClef.jpg",
+              "title": "commentTestTitle2",
+              "story": "commentTestStory2",
+              "reactions": [
+                  { 
+                      "id": 1,
+                      "name": "thumbs-up",
+                      "hits": 12 
+                  },
+                  { 
+                      "id": 2,
+                      "name": "thumbs-down",
+                      "hits": 8 
+                  },
+                  { 
+                      "id": 3,
+                      "name": "heart",
+                      "hits": 2 
+                  }
+              ]  
+          },
+          {
+              "id": 2,
+              "avatar": "../assets/img/trebleClef.jpg",
+              "title": "commentTestTitle2",
+              "story": "commentTestStory2",
+              "reactions": [
+                  { 
+                      "id": 1,
+                      "name": "thumbs-up",
+                      "hits": 12 
+                  },
+                  { 
+                      "id": 2,
+                      "name": "thumbs-down",
+                      "hits": 8 
+                  },
+                  { 
+                      "id": 3,
+                      "name": "heart",
+                      "hits": 2 
+                  }
+              ]  
+          },{
+            "id": 3,
             "avatar": "../assets/img/trebleClef.jpg",
-            "title": "postTestTitle",
-            "story": "postTestStory"
-        },
-        {
-            "id": 2,
-            "avatar": "../assets/img/trebleClef.jpg",
-            "title": "postTestTitle1",
-            "story": "postTestStory1"
+            "title": "commentTestTitle2",
+            "story": "commentTestStory2",
+            "reactions": [
+                { 
+                    "id": 1,
+                    "name": "thumbs-up",
+                    "hits": 12 
+                },
+                { 
+                    "id": 2,
+                    "name": "thumbs-down",
+                    "hits": 8 
+                },
+                { 
+                    "id": 3,
+                    "name": "heart",
+                    "hits": 2 
+                }
+            ]  
         }
-    ]
+          ]
+    }
+  ]
 }
