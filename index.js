@@ -1,7 +1,7 @@
 
 let rootHeader = document.getElementById("rootHeader");
 let rootBody = document.getElementById("rootBody");
-let rootFooter = document.getElementById("rootFooter");
+let rootComments = document.getElementById("rootComments");
 
 
 //fetch post data
@@ -24,14 +24,16 @@ fetch("http://localhost:3000/posts")
     json.map((data) => {
         // console.log(data.footer)
         for (let i=0; i < Object.keys( data.footer ).length; i++){
-            // console.log(data.footer[i].comment)
-            for(let j=0; j< Object.keys( data.footer[i].comment ).length; j++){
+            // console.log(data.footer[i].comments)
+            for(let j=0; j< Object.keys( data.footer[i].comments ).length; j++){
                 console.log(data.footer[i].comments[j])
-                // rootFooter.append(footer_fun(data.footer[i].heading[j].title))
+                rootComments.append(comments_fun(data.footer[i].comments[j].title, data.footer[i].comments[j].story))
+                
+                // for(let k=0; k< Object.keys( data.footer[i].comments[j] ).length; k++){
+                //   console.log(data.footer[i].comments[j].reactions[k].name);
+                // }
             }
-            // for(let k=0; k< Object.keys( data.footer[i].heading ).length; k++){
-            //     console.log(data.footer[i].body[k].story)
-            // }
+            
         }
     })
   });
@@ -73,6 +75,15 @@ function body_fun(story) {
             <i class="fa fa-heart icon"></i>3
         </a>
     </div>
+    <div class="post-footer">
+    <div class="input-group"> 
+        <input class="form-control" placeholder="Add a comment" type="text">
+        <span class="input-group-addon">
+            <a href="#"><i class="fa fa-edit"></i></a>  
+        </span>
+    </div>
+    </div>   
+
 
       `;
     return postBody;
@@ -80,10 +91,10 @@ function body_fun(story) {
 
 
 // create comments list
-function footer_fun(title) {
-    let ul = document.createElement(`ul`); 
-    ul.className = "comments-list";
-    ul.innerHTML = `              
+function comments_fun(title, story) {
+    let li = document.createElement(`ul`); 
+    li.innerHTML = `   
+           
 <li class="comment">
 <div class="post-heading">
 <div class="pull-left image">
@@ -91,15 +102,16 @@ function footer_fun(title) {
 </div>
 <div class="comment-body">
     <div class="comment-heading">
-    <h4 class="user">Comment title</h4>
+    <h4 class="user">${title}</h4>
         <h5 class="time">Posted: 5 minutes ago</h5>
     </div>
-    <p>Comment body</p>
+    <p>${story}</p>
+   
 </div>  
 </div>   
 </li>
       `;   
-    return ul;
+    return li;
   }
   
 //   console.log(li_fun())
