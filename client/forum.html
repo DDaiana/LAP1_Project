@@ -29,7 +29,8 @@
                     <div class="container bootstrap snippets bootdey">
                         <div class="col-sm-8">
                             <div class="panel panel-white post panel-shadow">
-                                <div class="post-heading" id="">
+                                <div id="rootHeader">
+                                <!-- <div class="post-heading" id="">
                                     <div class="pull-left image">
                                         <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
                                     </div>
@@ -39,8 +40,10 @@
                                         </div>
                                         <h6 class="text-muted time">Posted: 1 minute ago</h6>
                                     </div>
-                                </div> 
-                                <div class="post-description"> 
+                                </div>  -->
+                               </div>
+                               <div id="rootBody">
+                                <!-- <div class="post-description"> 
                                     <p>Post body</p>
                                     <div class="reactions" id="reactions">
                                         <a href="#" class="btn btn-default reaction-item">
@@ -53,8 +56,10 @@
                                             <i class="fa fa-heart icon"></i>3
                                         </a>
                                     </div>
+                                </div> -->
                                 </div>
-                                <div class="post-footer" id="postFooter">
+                                <div id="rootFooter">
+                                <div class="post-footer">
                                     <div class="input-group"> 
                                         <input class="form-control" placeholder="Add a comment" type="text">
                                         <span class="input-group-addon">
@@ -64,8 +69,8 @@
 
                                     <!----------------------------- commets list starts --------------------------->
                                                                         
-                                    <ul class="comments-list" id="comments-list">               
-                                        <li class="comment">
+                                    <ul class="comments-list" id="rootComments">               
+                                      <li class="comment">
                                         <div class="post-heading">
                                         <div class="pull-left image">
                                             <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
@@ -78,10 +83,11 @@
                                             <p>Comment body</p>
                                         </div>  
                                         </div>   
-                                        </li>
-                                        </ul>
+                                       </li>
+                                    </ul>
                                     <!----------------------------- commets list ends ---------------------------->
                                 </div>
+                            </div>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +101,7 @@
 <!-- <div id="test" class="comments-list"> </div> -->
     
 
-<!-- <script src="../index.js"></script> -->
-<script src="../get.js"></script>
+<script src="../index.js"></script>
+<!-- <script src="../get.js"></script> -->
 </body>
 </html>
