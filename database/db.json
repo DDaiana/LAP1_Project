@@ -74,7 +74,30 @@
                             "hits": 7 
                         }
                     ]
-                    }
+                    },
+                    {
+                        "id": 3,
+                        "avatar": "../assets/img/trebleClef.jpg",
+                        "title": "commentTestTitle2",
+                        "story": "commentTestStory2",
+                        "reactions": [
+                            { 
+                                "id": 1,
+                                "name": "thumbs-up",
+                                "hits": 2 
+                            },
+                            { 
+                                "id": 2,
+                                "name": "thumbs-down",
+                                "hits": 4 
+                            },
+                            { 
+                                "id": 3,
+                                "name": "heart",
+                                "hits": 7 
+                            }
+                        ]
+                        }
             ]
         }]
         

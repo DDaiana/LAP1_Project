@@ -28,15 +28,11 @@ fetch("http://localhost:3000/posts")
             for(let j=0; j< Object.keys( data.footer[i].comments ).length; j++){
                 console.log(data.footer[i].comments[j])
                 rootComments.append(comments_fun(data.footer[i].comments[j].title, data.footer[i].comments[j].story))
-                
-                // for(let k=0; k< Object.keys( data.footer[i].comments[j] ).length; k++){
-                //   console.log(data.footer[i].comments[j].reactions[k].name);
-                // }
             }
             
         }
     })
-  });
+  }).catch(err => console.log(err)) ;
   
 
 // create post header
