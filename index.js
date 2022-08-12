@@ -26,7 +26,7 @@ fetch("http://localhost:3000/posts")
         for (let i=0; i < Object.keys( data.footer ).length; i++){
             // console.log(data.footer[i].comments)
             for(let j=0; j< Object.keys( data.footer[i].comments ).length; j++){
-                console.log(data.footer[i].comments[j])
+                // console.log(data.footer[i].comments[j])
                 rootComments.append(comments_fun(data.footer[i].comments[j].title, data.footer[i].comments[j].story))
             }
             
@@ -110,8 +110,6 @@ function comments_fun(title, story) {
     return li;
   }
   
-//   console.log(li_fun())
-//   footer.appendChild(li_fun())
  
 
 
