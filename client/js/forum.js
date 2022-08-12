@@ -61,13 +61,13 @@ function body_fun(story) {
     
     <p>${story}</p>
     <div class="reactions" id="reactions">
-        <a href="#" class="btn btn-default reaction-item">
+        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-thumbs-up icon"></i>2
         </a>
-        <a href="#" class="btn btn-default reaction-item">
+        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-thumbs-down icon"></i>12
         </a>
-        <a href="#" class="btn btn-default reaction-item">
+        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-heart icon"></i>3
         </a>
     </div>
@@ -111,6 +111,14 @@ function comments_fun(title, story) {
   }
   
  
+// ---------------------- adding events listener -----------------
 
+  const rootH = document.getElementById('rootHeader');
+  const rootB = document.getElementById('rootBody');
 
- 
+  console.log("inner html for rootHeader: ", rootH.firstChild.parentNode);
+
+//   console.log("inner html for rootHeader: ", rootH.firstChild.parentNode.innerHTML);
+
+//   console.log("inner html for rootHBody: ", rootB.firstChild.parentNode.innerHTML);
+
