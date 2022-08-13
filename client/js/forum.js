@@ -115,13 +115,6 @@ function comments_fun(title, story) {
 
   console.log("inner html for rootHeader: ", rootH.firstChild.parentNode);
 
-//   console.log("inner html for rootHeader: ", rootH.firstChild.parentNode.innerHTML);
-
-//   console.log("inner html for rootHBody: ", rootB.firstChild.parentNode.innerHTML);
-
-// rootB.addEventListener("click", () => {
-//     console.log("rootB clicked.");
-//   });
 
 document.body.addEventListener("click", event => {
     // console.log("getting the section in which the action happens", event.target.parentNode)
