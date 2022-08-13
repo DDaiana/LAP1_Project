@@ -64,10 +64,10 @@ function body_fun(story) {
         <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-thumbs-up icon"></i>2
         </a>
-        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
+        <a id="thumbsDown" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-thumbs-down icon"></i>12
         </a>
-        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
+        <a id="heart" href="#" class="btn btn-default reaction-item">
             <i class="fa fa-heart icon"></i>3
         </a>
     </div>
@@ -113,12 +113,52 @@ function comments_fun(title, story) {
  
 // ---------------------- adding events listener -----------------
 
-  const rootH = document.getElementById('rootHeader');
-  const rootB = document.getElementById('rootBody');
-
   console.log("inner html for rootHeader: ", rootH.firstChild.parentNode);
 
 //   console.log("inner html for rootHeader: ", rootH.firstChild.parentNode.innerHTML);
 
 //   console.log("inner html for rootHBody: ", rootB.firstChild.parentNode.innerHTML);
 
+// rootB.addEventListener("click", () => {
+//     console.log("rootB clicked.");
+//   });
+
+document.body.addEventListener("click", event => {
+    // console.log("getting the section in which the action happens", event.target.parentNode)
+    let html = event.target.parentNode.className
+
+    // console.log("html:  ", html)
+
+    switch (html) {
+        case "reactions":
+            console.log("case when user clicked reactions:  ", html)
+
+            let thumbsU = document.getElementById("thumbsUp");
+            console.log("getting the element with id thumbsU: ", thumbsU);
+
+            let thumbsD = document.getElementById("thumbsDown");
+            console.log("getting the element with id thumbsD: ", thumbsD);
+
+            let heart = document.getElementById("heart");
+            console.log("getting the element with id heart: ", heart);
+
+            break;
+        case "input-group":
+            console.log("case when user clicked input-group:  ", html)
+            break;
+        default:
+            console.log("case when user clicked other elements, html:  ", html)
+            break;
+    }
+
+    // let thumbsU = document.getElementById("thumbsUp");
+    // console.log("getting the element with id thumbsU: ", thumbsU)
+
+    // let thumbsD = document.getElementById("thumbsDown");
+    // console.log("getting the element with id thumbsD count: ", thumbsD)
+    // thumbsD.style.color ="red"
+
+    // if (event.target.nodeName == "rootHBody") {
+    //   console.log("Clicked", event.target.textContent);
+    // }
+  });
