@@ -16,9 +16,14 @@ fetch("http://localhost:3000/posts")
         }
     })
     json.map((data) => {
-        // console.log(data.body)
+        // console.log(" data.body ", data.body)
         for (let i=0; i < Object.keys( data.body ).length; i++){
-            rootBody.append(body_fun(data.body[i].story))
+            rootBody.append(body_fun(data.body[i].story, 
+                 data.body[i].reactions[0].hits,
+                 data.body[i].reactions[1].hits,
+                 data.body[i].reactions[2].hits   
+                ))
+            console.log(" data.body ", data.body[i].reactions[0].hits)
         }
     })
     json.map((data) => {
@@ -54,7 +59,7 @@ function header_fun(title) {
 }
 
 //create post body
-function body_fun(story) {
+function body_fun(story, thumbsUp, thumbsDown, heart) {
     let postBody = document.createElement("div");
     postBody.className = "post-description";
     postBody.innerHTML = `    
@@ -62,13 +67,13 @@ function body_fun(story) {
     <p>${story}</p>
     <div class="reactions" id="reactions">
         <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-thumbs-up icon"></i>2
+            <i class="fa fa-thumbs-up icon"></i>${thumbsUp}
         </a>
         <a id="thumbsDown" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-thumbs-down icon"></i>12
+            <i class="fa fa-thumbs-down icon"></i>${thumbsDown}
         </a>
         <a id="heart" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-heart icon"></i>3
+            <i class="fa fa-heart icon"></i>${heart}
         </a>
     </div>
     <div class="post-footer">
@@ -113,7 +118,7 @@ function comments_fun(title, story) {
  
 // ---------------------- adding events listener -----------------
 
-  console.log("inner html for rootHeader: ", rootH.firstChild.parentNode);
+//   console.log("inner html for rootHeader: ", rootHeader.firstChild.parentNode);
 
 
 document.body.addEventListener("click", event => {
@@ -128,12 +133,13 @@ document.body.addEventListener("click", event => {
 
             let thumbsU = document.getElementById("thumbsUp");
             console.log("getting the element with id thumbsU: ", thumbsU);
+            thumbsU.textContent = "Changed";
 
-            let thumbsD = document.getElementById("thumbsDown");
-            console.log("getting the element with id thumbsD: ", thumbsD);
+            // let thumbsD = document.getElementById("thumbsDown");
+            // console.log("getting the element with id thumbsD: ", thumbsD);
 
-            let heart = document.getElementById("heart");
-            console.log("getting the element with id heart: ", heart);
+            // let heart = document.getElementById("heart");
+            // console.log("getting the element with id heart: ", heart);
 
             break;
         case "input-group":
