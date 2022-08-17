@@ -77,9 +77,9 @@ function body_fun(story, thumbsUp, thumbsDown, heart) {
         </a>
     </div>
     <div class="post-footer">
-    <div id="form-control" class="input-group"> 
-        <input  class="form-control" placeholder="Title" type="text">
-        <input  class="form-control" placeholder="Add a comment" type="text">
+    <div id="form-control-comment" class="input-group"> 
+        <input id="input-title-comment" class="form-control" placeholder="Comment title" type="text">
+        <input id="input-story-comment" class="form-control" placeholder="Add a comment" type="text">
         <span class="input-group-addon">
             <a href="#"><i class="fa fa-edit"></i></a>  
         </span>
@@ -122,7 +122,7 @@ function comments_fun(title, story) {
 //   console.log("inner html for rootHeader: ", rootHeader.firstChild.parentNode);
 
 document.body.addEventListener("click", event => {
-        // console.log("getting the section in which the action happens", event.target.parentNode.id) 
+        console.log("getting the section in which the action happens", event.target.parentNode.id) 
         let htmlAction =  event.target.parentNode.id
 
     switch (htmlAction) {
@@ -150,13 +150,17 @@ document.body.addEventListener("click", event => {
             heart.innerHTML = ` <a id="heart" href="#" class="btn btn-default reaction-item">
             <i   class="fa fa-heart icon"></i>${htmlH+1}
         </a>`
-
             break;
-        case "input-group":
-            console.log("case when user clicked input-group:  ", html)
+        case "form-control-comment":
+            console.log("case when user clicked form-control:  ", htmlAction)
+            console.log(htmlAction)
+            // let title = document.getElementById("input-title-comment")
+            // console.log(title.placeholder)
+            // let story = document.getElementById("input-story-comment")
+            // console.log(story.placeholder)
             break;
         default:
-            console.log("case when user clicked other elements, html:  ", html)
+            console.log("case when user clicked other elements, html:  ", htmlAction)
             break;
     }
 
