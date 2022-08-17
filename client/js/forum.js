@@ -23,7 +23,7 @@ fetch("http://localhost:3000/posts")
                  data.body[i].reactions[1].hits,
                  data.body[i].reactions[2].hits   
                 ))
-            console.log(" data.body ", data.body[i].reactions[0].hits)
+            // console.log(" data.body ", data.body[i].reactions[0].hits)
         }
     })
     json.map((data) => {
@@ -66,19 +66,19 @@ function body_fun(story, thumbsUp, thumbsDown, heart) {
     
     <p>${story}</p>
     <div class="reactions" id="reactions">
-        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-thumbs-up icon"></i>${thumbsUp}
+        <a href="#" class="btn btn-default reaction-item">
+            <i id="thumbsUp"class="fa fa-thumbs-up icon" value=></i>${thumbsUp}
         </a>
-        <a id="thumbsDown" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-thumbs-down icon"></i>${thumbsDown}
+        <a  href="#" class="btn btn-default reaction-item">
+            <i id="thumbsDown" class="fa fa-thumbs-down icon"></i> ${thumbsDown}
         </a>
-        <a id="heart" href="#" class="btn btn-default reaction-item">
-            <i class="fa fa-heart icon"></i>${heart}
+        <a  href="#" class="btn btn-default reaction-item">
+            <i  id="heart" class="fa fa-heart icon"></i>${heart}
         </a>
     </div>
     <div class="post-footer">
     <div class="input-group"> 
-        <input class="form-control" placeholder="Add a comment" type="text">
+        <input id="form-control" class="form-control" placeholder="Add a comment" type="text">
         <span class="input-group-addon">
             <a href="#"><i class="fa fa-edit"></i></a>  
         </span>
@@ -122,40 +122,54 @@ function comments_fun(title, story) {
 
 
 document.body.addEventListener("click", event => {
-    // console.log("getting the section in which the action happens", event.target.parentNode)
-    let html = event.target.parentNode.className
-
+    // console.log("getting the section in which the action happens", event.target.parentNode.childNodes[1].lastElementChild.id) 
+    console.log("getting the section in which the action happens", event.target.parentNode.childNodes[3].lastElementChild.id) 
+    // console.log("getting the section in which the action happens", event.target.parentNode.childNodes[5].lastElementChild.id) 
     // console.log("html:  ", html)
+    
 
-    switch (html) {
-        case "reactions":
-            console.log("case when user clicked reactions:  ", html)
+    // switch (html) {
+    //     case "reactions":
+    //         console.log("case when user clicked reactions:  ", html)
+    //         if(event.target.parentNode.childNodes[5].lastElementChild.id == "heart"){
+    //             console.log("case when user clicked reactions - heart  ")
+    //         } else if(event.target.parentNode.childNodes[3].lastElementChild.id == "thumbsDown"){
+    //             console.log("case when user clicked reactions - thumbsDown  ")
+    //         } 
 
-            let thumbsU = document.getElementById("thumbsUp");
-            console.log("getting the element with id thumbsU: ", thumbsU);
-            thumbsU.textContent = "Changed";
+            
 
-            // let thumbsD = document.getElementById("thumbsDown");
-            // console.log("getting the element with id thumbsD: ", thumbsD);
-
-            // let heart = document.getElementById("heart");
-            // console.log("getting the element with id heart: ", heart);
-
-            break;
-        case "input-group":
-            console.log("case when user clicked input-group:  ", html)
-            break;
-        default:
-            console.log("case when user clicked other elements, html:  ", html)
-            break;
-    }
+    //         break;
+    //     case "input-group":
+    //         console.log("case when user clicked input-group:  ", html)
+    //         break;
+    //     default:
+    //         console.log("case when user clicked other elements, html:  ", html)
+    //         break;
+    // }
 
     // let thumbsU = document.getElementById("thumbsUp");
     // console.log("getting the element with id thumbsU: ", thumbsU)
 
-    // let thumbsD = document.getElementById("thumbsDown");
-    // console.log("getting the element with id thumbsD count: ", thumbsD)
+    if( event.target.parentNode.childNodes[1].lastElementChild.id ) {
+        let thumbsU = document.getElementById("thumbsUp");
+        console.log("getting the element with id thumbsU count: ", thumbsU)
+        thumbsU.innerHTML= "tU";
+    } else if( event.target.parentNode.childNodes[3].lastElementChild.id == 'thumbsDown' ) {
+        let thumbsD = document.getElementById("thumbsDown");
+        console.log("getting the element with id thumbsU count: ", thumbsD)
+        thumbsD.innerHTML= "tD";
+    }
+
+    
+    // let thumbsU = document.getElementById("thumbsUp");
+    // console.log("getting the element with id thumbsU count: ", thumbsU)
+    // let heart = document.getElementById("heart");
+    // console.log("getting the element with id thumbsU count: ", heart)
     // thumbsD.style.color ="red"
+    // thumbsD.innerHTML= "tD"
+    // thumbsU.innerHTML= "tU"
+    // heart.innerHTML= "h"
 
     // if (event.target.nodeName == "rootHBody") {
     //   console.log("Clicked", event.target.textContent);
