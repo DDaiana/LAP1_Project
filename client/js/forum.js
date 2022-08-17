@@ -66,19 +66,20 @@ function body_fun(story, thumbsUp, thumbsDown, heart) {
     
     <p>${story}</p>
     <div class="reactions" id="reactions">
-        <a href="#" class="btn btn-default reaction-item">
-            <i id="thumbsUp"class="fa fa-thumbs-up icon" value=></i>${thumbsUp}
+        <a id="thumbsUp" href="#" class="btn btn-default reaction-item">
+            <i class="fa fa-thumbs-up icon" value=></i>${thumbsUp}
         </a>
-        <a  href="#" class="btn btn-default reaction-item">
-            <i id="thumbsDown" class="fa fa-thumbs-down icon"></i> ${thumbsDown}
+        <a id="thumbsDown" href="#" class="btn btn-default reaction-item">
+            <i  class="fa fa-thumbs-down icon"></i> ${thumbsDown}
         </a>
-        <a  href="#" class="btn btn-default reaction-item">
-            <i  id="heart" class="fa fa-heart icon"></i>${heart}
+        <a id="heart" href="#" class="btn btn-default reaction-item">
+            <i   class="fa fa-heart icon"></i>${heart}
         </a>
     </div>
     <div class="post-footer">
-    <div class="input-group"> 
-        <input id="form-control" class="form-control" placeholder="Add a comment" type="text">
+    <div id="form-control" class="input-group"> 
+        <input  class="form-control" placeholder="Title" type="text">
+        <input  class="form-control" placeholder="Add a comment" type="text">
         <span class="input-group-addon">
             <a href="#"><i class="fa fa-edit"></i></a>  
         </span>
@@ -120,58 +121,43 @@ function comments_fun(title, story) {
 
 //   console.log("inner html for rootHeader: ", rootHeader.firstChild.parentNode);
 
-
 document.body.addEventListener("click", event => {
-    // console.log("getting the section in which the action happens", event.target.parentNode.childNodes[1].lastElementChild.id) 
-    console.log("getting the section in which the action happens", event.target.parentNode.childNodes[3].lastElementChild.id) 
-    // console.log("getting the section in which the action happens", event.target.parentNode.childNodes[5].lastElementChild.id) 
-    // console.log("html:  ", html)
-    
+        // console.log("getting the section in which the action happens", event.target.parentNode.id) 
+        let htmlAction =  event.target.parentNode.id
 
-    // switch (html) {
-    //     case "reactions":
-    //         console.log("case when user clicked reactions:  ", html)
-    //         if(event.target.parentNode.childNodes[5].lastElementChild.id == "heart"){
-    //             console.log("case when user clicked reactions - heart  ")
-    //         } else if(event.target.parentNode.childNodes[3].lastElementChild.id == "thumbsDown"){
-    //             console.log("case when user clicked reactions - thumbsDown  ")
-    //         } 
+    switch (htmlAction) {
+        case "thumbsUp":
+            console.log("case when user clicked thumbs up "); 
+            let thumbsU = document.getElementById("thumbsUp");
+            let htmlU = parseInt(thumbsU.outerText);
+            thumbsU.innerHTML = `<a id="thumbsUp" href="#" class="btn btn-default reaction-item">
+            <i class="fa fa-thumbs-up icon" value=></i> ${htmlU+1}
+        </a>`
+            break;
+        case "thumbsDown":
+            // console.log("case when user clicked thumbs down ")
+            let thumbsD = document.getElementById("thumbsDown");
+            let htmlD = parseInt(thumbsD.outerText);
+            // console.log(html + 1)
+            thumbsD.innerHTML = `<a id="thumbsDown" href="#" class="btn btn-default reaction-item">
+            <i  class="fa fa-thumbs-down icon"></i> ${htmlD+1}
+        </a>`;
+            break;
+        case "heart":
+            console.log("case when user clicked heart ")
+            let heart = document.getElementById("heart")
+            let htmlH = parseInt(heart.outerText)
+            heart.innerHTML = ` <a id="heart" href="#" class="btn btn-default reaction-item">
+            <i   class="fa fa-heart icon"></i>${htmlH+1}
+        </a>`
 
-            
-
-    //         break;
-    //     case "input-group":
-    //         console.log("case when user clicked input-group:  ", html)
-    //         break;
-    //     default:
-    //         console.log("case when user clicked other elements, html:  ", html)
-    //         break;
-    // }
-
-    // let thumbsU = document.getElementById("thumbsUp");
-    // console.log("getting the element with id thumbsU: ", thumbsU)
-
-    if( event.target.parentNode.childNodes[1].lastElementChild.id ) {
-        let thumbsU = document.getElementById("thumbsUp");
-        console.log("getting the element with id thumbsU count: ", thumbsU)
-        thumbsU.innerHTML= "tU";
-    } else if( event.target.parentNode.childNodes[3].lastElementChild.id == 'thumbsDown' ) {
-        let thumbsD = document.getElementById("thumbsDown");
-        console.log("getting the element with id thumbsU count: ", thumbsD)
-        thumbsD.innerHTML= "tD";
+            break;
+        case "input-group":
+            console.log("case when user clicked input-group:  ", html)
+            break;
+        default:
+            console.log("case when user clicked other elements, html:  ", html)
+            break;
     }
 
-    
-    // let thumbsU = document.getElementById("thumbsUp");
-    // console.log("getting the element with id thumbsU count: ", thumbsU)
-    // let heart = document.getElementById("heart");
-    // console.log("getting the element with id thumbsU count: ", heart)
-    // thumbsD.style.color ="red"
-    // thumbsD.innerHTML= "tD"
-    // thumbsU.innerHTML= "tU"
-    // heart.innerHTML= "h"
-
-    // if (event.target.nodeName == "rootHBody") {
-    //   console.log("Clicked", event.target.textContent);
-    // }
-  });
+  }); 
